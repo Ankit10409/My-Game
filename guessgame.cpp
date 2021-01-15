@@ -28,6 +28,8 @@ public:
     int guessno = 0;
     void inputusername() //takes username and calls welcome function
     {
+        sleep(1.0);
+        clrscr();
         cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\tHello \n";
         cout << "Enter the username : ";
         getline(cin, username);
@@ -39,10 +41,13 @@ public:
         clrscr();
         cout << "Welcome " << username << endl
              << endl;
+        cout << "In this game computer will generate a random number for you \n";
     }
     void difficultylevel() //takes input for difficulty level :1for easy 2 for medium 3 for difficult
     {
-        cout << "Choose a difficulty level \n";
+        sleep(1.0);
+        clrscr();
+        cout << "Choose a difficulty level(Enter 1, 2 or 3 to select level)\n";
         cout << "\t\t\t\t\t\t\t\t1.)Easy(Maximum 100 points)\n";
         cout << "\t\t\t\t\t\t\t\t2.)Medium(Maximum 500 points)\n";
         cout << "\t\t\t\t\t\t\t\t3.)Hard(Maximum 1000 points)\n";
@@ -50,28 +55,28 @@ public:
     }
     int targetgenerator() // only considers 1,2,3 as input and ends program if entered any other value
     {
-        if (difficulty == 1) //range of 1 to 100 in easy level
+        if (difficulty == 1) //range of 1 to 50 in easy level
         {
             iniscore = 100;
             score = 100;
             srand(time(NULL));
-            target = rand() % 100 + 1;
+            target = rand() % 50 + 1;
             return 0;
         }
-        else if (difficulty == 2) //range of 1 to 200 in medium level
+        else if (difficulty == 2) //range of 1 to 75 in medium level
         {
             score = 500;
             iniscore = 500;
             srand(time(NULL));
-            target = rand() % 200 + 1;
+            target = rand() % 75 + 1;
             return 0;
         }
-        else if (difficulty == 3) //range of 1 to 300 in hard level
+        else if (difficulty == 3) //range of 1 to 100 in hard level
         {
             score = 1000;
             iniscore = 1000;
             srand(time(NULL));
-            target = rand() % 300 + 1;
+            target = rand() % 100 + 1;
             return 0;
         }
         else
@@ -81,6 +86,7 @@ public:
     {
         cout << endl;
         guessno++;
+        sleep(1.0);
         if (guessno == 1)
             cout << "\nEnter your " << guessno << "st guess\n";
         if (guessno == 2)
