@@ -54,6 +54,7 @@ public:
         {
             iniscore = 100;
             score = 100;
+            srand(time(NULL));
             target = rand() % 100 + 1;
             return 0;
         }
@@ -61,6 +62,7 @@ public:
         {
             score = 500;
             iniscore = 500;
+            srand(time(NULL));
             target = rand() % 200 + 1;
             return 0;
         }
@@ -68,6 +70,7 @@ public:
         {
             score = 1000;
             iniscore = 1000;
+            srand(time(NULL));
             target = rand() % 300 + 1;
             return 0;
         }
