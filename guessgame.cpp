@@ -96,13 +96,13 @@ public:
 
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 4);
         cout << endl
-             << "3.Challenge Mode(under construction please do not choose)";
+             << "3.Challenge Mode";
         cout << endl
              << endl
-             << "Enter 1,2 or 3 :";
+             << "Enter 1,2 or 3 : ";
 
-        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 1);
         cin >> mode;
+        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 1);
 
         while (mode != 1 && mode != 2 && mode != 3)
         { //ensures that the player has entered the correct value
@@ -123,23 +123,23 @@ public:
              << endl;
 
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 5);
-        cout << "***************************************************" << endl;
+        cout << "***********************************************************" << endl;
 
-        cout << "      CODE CREDITS        :          NAME" << endl;
+        cout << "      CODE CREDITS        :            NAME" << endl;
 
-        cout << "***************************************************" << endl;
-
-        sleep(0.5);
-        cout << "      PATTERN LOGIC       :          Ankit" << endl;
+        cout << "***********************************************************" << endl;
 
         sleep(0.5);
-        cout << "     INTERFACE LOGIC      :  Divya Deept Pandey G" << endl;
+        cout << "      Back end            :            Ankit" << endl;
 
         sleep(0.5);
-        cout << "     DEBUGGING LOGIC      :          Gaurav" << endl;
+        cout << "      Front end           :     Divya Deept Pandey G" << endl;
+
+        sleep(0.5);
+        cout << "      Debugging           : Divya Deept Pandey G & Gaurav " << endl;
         sleep(0.5);
 
-        cout << "***************************************************" << endl;
+        cout << "***********************************************************" << endl;
 
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 1);
         sleep(10);
@@ -158,7 +158,7 @@ public:
     int userscore;
     int guessno = 0;
 
-    void difficultylevel() //takes input for difficulty level :1for easy 2 for medium 3 for difficult
+    void difficultylevel() //takes input for difficulty level : 1 for easy 2 for medium 3 for difficult
     {
 
         clrscr();
@@ -259,8 +259,10 @@ public:
         else if (uservalue > target)
         {
             score = score - (iniscore / 20);
+
             SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 3);
             cout << "\nYou are a little above the target ";
+
             SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 1);
             return 1;
         }
@@ -268,8 +270,10 @@ public:
         else
         {
             score = score - (iniscore / 20);
+
             SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
             cout << "\nYou are a little below the target ";
+
             SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 1);
             return 1;
         }
@@ -304,7 +308,6 @@ public:
 
 void campaignplayerfunction() //to play the campaign mode if user wants to play campaign mode
 {
-    campaign campaignplayer;
     campaignplayer.modeintro();       //give  intro
     campaignplayer.difficultylevel(); //difficulty gets player difficulty level
     campaignplayer.targetgenerator();
@@ -319,15 +322,19 @@ void campaignplayerfunction() //to play the campaign mode if user wants to play 
         {
             SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 4);
             cout << "You lost ";
+
             SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 1);
             return;
         }
+
     } while (campaignplayer.uservaluechecker()); //take inputs until user guesses correct answer
 
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
+
     cout << "Congratulations " << userdetails.username;
     cout << "\nYou guessed correct in " << campaignplayer.guessno << " guesses\n";
     cout << "Your score is " << campaignplayer.userscore << endl;
+
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
 
     sleep(5.0);
@@ -380,22 +387,27 @@ public:
         clrscr();
 
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 3);
+
         cout << endl
              << "In this mode one player will enter a number secretely and second player will guess the number\n\n";
         sleep(1);
 
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 1);
+
         cout << userdetails.username << " is Player 1" << endl
              << "Player 2 please enter your name : ";
         getline(cin, userdetails.username2);
+        getline(cin, userdetails.username2); // gives problem in one time
 
         sleep(2.0);
         clrscr();
 
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 6);
+
         cout << endl
              << "\n\nPlayer 1 : " << userdetails.username << " will enter the number secretely(a two digit number only)" << endl
              << "Player 2 : " << userdetails.username2 << " will guess the number\n\n " << endl;
+
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 4);
 
         for (int j = 0; j < 120; j++)
@@ -413,6 +425,7 @@ public:
         cout << "Enter the number :";
 
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+
         secret[0] = getch();
         cout << "*";
         secret[1] = getch();
@@ -456,9 +469,12 @@ public:
         {
             p2score = p2score - (iniscore / 20);
             p1score = p1score + (iniscore / 20);
+
             SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 3);
             cout << "\nYou are a little above the target ";
+
             SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 1);
+
             return 1;
         }
 
@@ -466,9 +482,12 @@ public:
         {
             p2score = p2score - (iniscore / 20);
             p1score = p1score + (iniscore / 20);
+
             SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
             cout << "\nYou are a little below the target ";
+
             SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 1);
+
             return 1;
         }
     }
@@ -484,11 +503,11 @@ public:
         else
             return 1;
     }
+
 } friendsplayer;
 
 void playagainstfriendfunction()
 {
-    friends friendsplayer;
     friendsplayer.modeintro();
     friendsplayer.secretinput();
 
@@ -503,20 +522,197 @@ void playagainstfriendfunction()
                  << "Congratulations!! " << userdetails.username << endl
                  << "You Won" << endl;
         }
+
     } while (friendsplayer.player2guesscheck());
+
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
+
     cout << "Congratulations!! " << userdetails.username2;
     cout << "\nYou guessed correct in " << friendsplayer.player2guessno << " guesses" << endl
          << "Your score is " << friendsplayer.p2score << endl
          << "Player 1 " << userdetails.username << " score is " << friendsplayer.p1score << endl;
+
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+
+    sleep(5.0);
+    clrscr();
+}
+
+class Challenge
+{
+public:
+    int iniscore = 0;
+    int score = 0;
+    int target;
+    int beg, end;
+    int uservalue;
+    int userscore = 1;
+    int guessno;
+
+    void inputrange()
+    {
+        clrscr();
+
+        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
+        cout << "Enter the beginning : ";
+        cin >> beg;
+
+        clrscr();
+        cout << "Enter the ending Number : ";
+        cin >> end;
+
+        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 1);
+        clrscr();
+    }
+
+    void targetgenerator()
+    {
+        srand(time(NULL));
+        target = rand() % (end - beg) + beg;
+    }
+
+    void scoregenerator() //generate score for target
+    {
+        if (end - beg <= 50)
+        {
+            iniscore = 100;
+            score = 100;
+        }
+        else if (end - beg <= 75)
+        {
+            iniscore = 500;
+            score = 500;
+        }
+        else if (end - beg <= 100)
+        {
+            iniscore = 1000;
+            score = 1000;
+        }
+        else
+        {
+            iniscore = 2000;
+            score = 2000;
+        }
+    }
+
+    void takeinput() //take input
+    {
+        cout << endl;
+        guessno++;
+
+        sleep(1.0);
+        if (guessno == 1)
+            cout << "\nEnter your " << guessno << "st guess\n";
+        if (guessno == 2)
+            cout << "\nEnter your " << guessno << "nd guess\n";
+        if (guessno == 3)
+            cout << "\nEnter your " << guessno << "rd guess\n";
+        if (guessno > 3)
+            cout << "\nEnter your " << guessno << "th guess\n";
+
+        cin >> uservalue;
+        cout << endl;
+
+        clrscr();
+    }
+
+    int uservaluechecker() //checks if the input is correct and calculates the score
+    {
+        if (uservalue == target)
+        {
+            userscore = score;
+            return 0;
+        }
+
+        else if (uservalue > target)
+        {
+            score = score - (iniscore / 20);
+
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 3);
+            cout << "\nYou are a little above the target ";
+
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 1);
+            return 1;
+        }
+
+        else
+        {
+            score = score - (iniscore / 20);
+
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
+            cout << "\nYou are a little below the target ";
+
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 1);
+            return 1;
+        }
+    }
+
+    int scorechecker() //player loses if the score becomes less than 0
+    {
+        if (userscore <= 0)
+            return 0;
+
+        else
+            return 1;
+    }
+
+    void modeintro() //tells what to do in campaign mode
+    {
+        clrscr();
+
+        cout << "\n\nIn this game you will enter a range within which computer will generate a random number for you" << endl
+             << "You have to guess the number\n\n\n";
+        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 4);
+
+        for (int j = 0; j < 120; j++)
+        {
+            cout << '*';
+            sleep(0.04);
+        }
+
+        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 1);
+    }
+
+} challengeplayer;
+
+void challengeplayerfunction()
+{
+    challengeplayer.modeintro();
+    challengeplayer.inputrange();
+    challengeplayer.targetgenerator();
+    challengeplayer.scoregenerator();
+
+    clrscr();
+
+    do
+    {
+        if (challengeplayer.scorechecker())
+            challengeplayer.takeinput(); // input is taken from user
+        else
+        {
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 4);
+            cout << "You lost ";
+
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 1);
+            return;
+        }
+    } while (challengeplayer.uservaluechecker()); //take inputs until user guesses correct answer
+
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
+
+    cout << "Congratulations " << userdetails.username;
+    cout << "\nYou guessed correct in " << challengeplayer.guessno << " guesses\n";
+    cout << "Your score is " << challengeplayer.userscore << endl;
+
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+
     sleep(5.0);
     clrscr();
 }
 
 int GameRunsHere() //this is where the game runs2
 {
-    int n = 0;
+    char n;
     userdetails.inputusername(); //username gets username
     userdetails.welcome();       //user is welcomed
 
@@ -536,21 +732,33 @@ int GameRunsHere() //this is where the game runs2
             break;
         case 3:
             clrscr();
-            cout << "Ek baar me baat samajh nahi aati kya jab bol diya ki under construction hai :/"; //challenge mode (not working yet)
-            sleep(5.0);
+            challengeplayerfunction();
             break;
         }
 
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 1);
         cout << "Do you Want To Play Again?" << endl;
         cout << "Press 1 for Yes or 2 for No" << endl;
+
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 6);
-        cin >> n;
+        n = getch();
+
+        if (n != '2')
+        {
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
+            cout << n;
+        }
+        else
+        {
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 4);
+            cout << n;
+        }
 
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 1);
         sleep(1);
         clrscr();
-    } while (n != 2);
+
+    } while (n != '2');
 
     return 0;
 }
@@ -571,6 +779,8 @@ int main()
 
     system("pause");
     clrscr();
+
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
 
     return 0;
 }
